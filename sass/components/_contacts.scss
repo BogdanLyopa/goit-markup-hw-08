@@ -1,0 +1,32 @@
+.contacts {
+  margin-left: auto;
+}
+
+.contacts .link {
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+}
+
+.contacts__icon {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.footer-contacts {
+  color: $contacts-color;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+.contact__item {
+  margin-bottom: 9px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

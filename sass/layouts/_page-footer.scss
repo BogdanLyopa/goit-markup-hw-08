@@ -1,0 +1,27 @@
+.page-footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $backgroud-gray;
+}
+
+.footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.footer__subtitle {
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: $white;
+}
+.link-icon--gray {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  fill: $white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.join .list {
+  margin-top: 20px;
+}
