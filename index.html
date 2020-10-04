@@ -14,11 +14,19 @@
 
   <body>
     <header class="header">
-      <div class="container main-nav">
+      <div class="container">
         <nav class="main-nav">
           <a class="logo link" href="index.html"
             >Web<span class="logo--black">Studio</span></a
           >
+            <button type="button" class="menu-button " data-menu-button>
+              <svg width="40" height="40">
+                <use class="icon-close" href="./images/sprite.svg#icon-close"></use>
+                <use class="icon-menu" href="./images/sprite.svg#icon-menu"></use>
+              </svg>
+              </button>
+              <div class="menu"data-menu>
+         
           <ul class="site-nav list">
             <li class="item">
               <a class="current link" href="index.html">Студия</a>
@@ -28,8 +36,10 @@
             </li>
             <li class="item"><a class="link" href="">Контакты</a></li>
           </ul>
-        </nav>
-        <ul class="site-nav list contacts">
+         
+        
+          
+        <ul class=" list contacts">
           <li class="item">
             <a class="link" href="mailto:info@devstudio.com">
               <svg class="contacts__icon" width="16" height="12">
@@ -45,6 +55,8 @@
             >
           </li>
         </ul>
+        </div>
+        </nav>
       </div>
     </header>
     <main class="main-content">
@@ -58,7 +70,7 @@
       <section class="features section">
         <div class="container">
           <h2 class="hidden">Особенности</h2>
-          <ul class="list">
+          <ul class="list features__list">
             <li class="features__item">
               <div class="features__frame">
                 <svg class="icon-features" width="70" height="70">
@@ -143,7 +155,7 @@
       <section class="team section">
         <div class="container">
           <h2 class="title">Наша команда</h2>
-          <ul class="list">
+          <ul class="list team__list">
             <li class="box">
               <img src="./images/img0.jpg" alt="Игорь Демьяненко" width="270" />
               <div class="box-footer">
@@ -347,6 +359,7 @@
     </main>
     <footer class="page-footer">
       <div class="container footer">
+        <div class="foot">
         <div>
           <a class="logo link" href="./index.html"
             >Web<span class="logo--white">Studio</span></a
@@ -369,7 +382,7 @@
         </div>
         <div class="join">
           <b class="footer__subtitle">Присоединяйтесь</b>
-          <ul class="list">
+          <ul class="list icon__list">
             <li class="icon__item">
               <a class="link-icon link-icon--gray link" href="">
                 <svg width="20" height="20">
@@ -399,6 +412,7 @@
               </a>
             </li>
           </ul>
+        </div>
         </div>
         <div class="follow"> 
           <b class="footer__subtitle">Подпишитесь на рассылку</b>
@@ -479,5 +493,6 @@
       </div>
     </div>
     <script src="./js/modal.js"></script>
+    <script src="./js/menu.js"></script>
   </body>
 </html>
