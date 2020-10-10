@@ -2,7 +2,10 @@
   color: $title-color;
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.15;
+  line-height: 1.5;
+  @media screen and (min-width: 1200px) {
+    line-height: 1.15;
+  }
   text-align: center;
 
   margin-top: 0;
@@ -57,14 +60,18 @@
   margin-bottom: 4px;
 }
 .checkbox-label {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.17;
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
   letter-spacing: 0.03em;
 }
 
 .comment {
   resize: none;
-  width: 448px;
   height: 120px;
   padding-left: 16px;
   margin-bottom: 10px;

@@ -144,7 +144,7 @@ body {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -173,9 +173,19 @@ img {
   flex-direction: column;
 }
 
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .container {
   width: 100%;
-  outline: 1px solid tomato;
   margin-left: auto;
   margin-right: auto;
   padding-right: 15px;
@@ -212,17 +222,6 @@ img {
   }
 }
 
-.hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
 .header {
   position: relative;
   background-color: #ffffff;
@@ -245,6 +244,7 @@ img {
     width: 100%;
     top: 100%;
     left: 0;
+    z-index: 3;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
   }
 }
@@ -362,16 +362,29 @@ img {
   justify-content: center;
   align-items: center;
   max-width: 1600px;
-  height: 600px;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
   background-color: #2f303a;
   color: #ffffff;
   text-align: center;
-  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/overley.jpg);
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/overlay-480.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/overlay-768.jpg);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    height: 600px;
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/overlay.jpg);
+  }
 }
 
 .hero__title {
@@ -430,8 +443,15 @@ img {
 }
 
 .buttons {
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .buttons {
+    justify-content: center;
+  }
 }
 
 .buttons__item {
@@ -440,6 +460,16 @@ img {
 
 .buttons__item:last-child {
   margin-right: 0;
+}
+
+.buttons__item:nth-child(-n + 3) {
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .buttons__item {
+    margin-bottom: 0;
+  }
 }
 
 .menu-button {
@@ -509,6 +539,9 @@ img {
   .features__item:nth-child(2n) {
     margin-right: 0;
   }
+  .features__item:nth-last-child(-n + 2) {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -517,6 +550,7 @@ img {
   }
   .features__item:not(:last-child) {
     margin-right: 30px;
+    margin-bottom: 0;
   }
 }
 
@@ -596,50 +630,47 @@ img {
   text-align: center;
 }
 
-.box {
+.team__box {
   background-color: #ffffff;
   margin-bottom: 30px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
 }
 
 @media screen and (max-width: 767px) {
-  .box:last-child {
+  .team__box:last-child {
     margin-bottom: 0;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .box:nth-last-child(-n + 2) {
+  .team__box:nth-last-child(-n + 2) {
     margin-bottom: 0;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .box {
+  .team__box {
     margin-bottom: 0;
   }
 }
 
-.team .box {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0px 0px 4px 4px;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .team .box {
+  .team__box {
     width: calc((100% - 30px) / 2);
     margin-right: 30px;
   }
-  .team .box:nth-child(2n) {
+  .team__box:nth-child(2n) {
     margin-right: 0;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .team .box {
+  .team__box {
     margin-right: 30px;
     width: calc((100% - 90px) / 4);
   }
-  .team .box:nth-child(4n) {
+  .team__box:nth-child(4n) {
     margin-right: 0;
   }
 }
@@ -658,10 +689,6 @@ img {
   color: #757575;
   margin-top: 0;
   margin-bottom: 16px;
-}
-
-.team img {
-  width: 450px;
 }
 
 .box-footer {
@@ -841,7 +868,7 @@ img {
 }
 
 .foot {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 @media screen and (min-width: 1200px) {
@@ -860,6 +887,12 @@ img {
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .contacts {
     padding-top: 21px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contacts {
+    margin-left: auto;
   }
 }
 
@@ -1017,9 +1050,11 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 90px 15px;
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
 }
 
 .is-hidden {
@@ -1032,20 +1067,32 @@ img {
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 528px;
-  height: 581px;
   background-color: #ffffff;
-  transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 609px;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    width: 528px;
+    height: 581px;
+  }
 }
 
 .modal__button {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 101px;
+  right: 23px;
   width: 30px;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1053,6 +1100,13 @@ img {
   border-radius: 50%;
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .modal__button {
+    top: 8px;
+    right: 8px;
+  }
 }
 
 .modal__button:hover, .modal__button:focus {
@@ -1063,10 +1117,16 @@ img {
   color: #212121;
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.15;
+  line-height: 1.5;
   text-align: center;
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+@media screen and (min-width: 1200px) {
+  .form__title {
+    line-height: 1.15;
+  }
 }
 
 .form {
@@ -1120,14 +1180,20 @@ img {
 }
 
 .checkbox-label {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.17;
   letter-spacing: 0.03em;
+}
+
+@media screen and (min-width: 1200px) {
+  .checkbox-label {
+    font-size: 14px;
+    line-height: 1.7;
+  }
 }
 
 .comment {
   resize: none;
-  width: 448px;
   height: 120px;
   padding-left: 16px;
   margin-bottom: 10px;
@@ -1172,9 +1238,11 @@ img {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.projects {
-  display: flex;
-  flex-wrap: wrap;
+@media screen and (min-width: 768px) {
+  .projects .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .projects__title {
@@ -1195,43 +1263,63 @@ img {
   margin-top: 0;
 }
 
-.projects .box {
-  position: relative;
-  width: calc((100% - 60px) / 3);
+.projects__item {
   margin-bottom: 30px;
   border-radius: 5px;
-  overflow: hidden;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.projects .box:nth-child(3n) {
-  margin-right: 0;
-}
-
-.projects .box:nth-last-child(-n + 3) {
+.projects__item:last-child {
   margin-bottom: 0;
 }
 
-.projects .box:hover, .projects .box:focus {
+.projects__item:hover, .projects__item:focus {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.projects .box:hover .overlay,
-.projects .box:focus .overlay {
+.projects__item:hover .overlay,
+.projects__item:focus .overlay {
   transform: translateY(0);
 }
 
-.box__caption {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .projects__item {
+    width: calc((100% - 30px) / 2);
+    margin-right: 30px;
+  }
+  .projects__item:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .projects__item {
+    width: calc((100% - 60px) / 3);
+    margin-right: 30px;
+  }
+  .projects__item:nth-child(3n) {
+    margin-right: 0;
+  }
+  .projects__item:nth-last-child(-n + 3) {
+    margin-bottom: 0;
+  }
+}
+
+.projects__box {
   position: relative;
-  padding: 20px 24px;
+  overflow: hidden;
+}
+
+.box__caption {
+  padding-top: 20px;
+  padding-left: 24px;
+  padding-bottom: 20px;
   border: 1px solid #eeeeee;
   background-color: #ffffff;
   box-sizing: border-box;
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  overflow: hidden;
-  z-index: 1;
 }
 
 .overlay {
