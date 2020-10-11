@@ -4,6 +4,10 @@
   border-bottom: 1px solid#ECECEC;
 }
 .menu {
+  @media screen and (max-width: 767px) {
+    font-size: 18px;
+  }
+
   background-color: #fff;
   text-align: center;
 
@@ -38,6 +42,11 @@
   display: flex;
 }
 .site-nav {
+  @media screen and(max-width:767px) {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
   @media screen and(min-width:768px) {
     display: flex;
   }
@@ -49,9 +58,8 @@
 
 .site-nav .link {
   display: inline-block;
-
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   position: relative;
 
   @media screen and(min-width:768px) {
@@ -70,6 +78,12 @@
   }
 }
 .site-nav .item {
+  @media screen and(max-width:767px) {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
   @media screen and(min-width:768px) {
     margin-right: 50px;
     &:last-child {
